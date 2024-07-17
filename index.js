@@ -9,9 +9,9 @@ const mattermostToken = process.env.MATTERMOST_TOKEN;
 const hook = new Webhook(process.env.DISCORD_WEBHOOK);
 
 app.post("/mattermost/openticket", (req, res) => {
-  hook.setContent(req.rawHeaders);
+  hook.setContent(`${req.rawHeaders}`);
   hook.send();
-  hook.setContent(req.body);
+  hook.setContent(`${req.body}`);
   hook.send();
 });
 
