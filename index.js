@@ -35,13 +35,13 @@ app.post("/mattermost/openticket", urlencodedParser, async (req, res) => {
     return res.send({
       text: "Internal server error while filtering the users from Zammad."
     });
-  console.log(user, email, title, description, ticketData);
+  //console.log(user, email, title, description, ticketData);
   let ticketCreate = await axios.post(
     "https://zammad.maxhenson.co.uk/api/v1/tickets",
     {
       title: title,
       group: process.env.DEFAULT_GROUP,
-      customer_id: user.id,
+      customer_id: user[0].id,
       article: {
         from: email,
         subject: title,
