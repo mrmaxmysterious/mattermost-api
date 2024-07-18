@@ -66,3 +66,9 @@ app.post("/mattermost/openticket", urlencodedParser, async (req, res) => {
 app.listen(6262, () => {
   console.log("Online");
 });
+
+setInterval(() => {
+  axios.get(
+    "https://kuma.maxhenson.co.uk/api/push/5AWn2PNzYv?status=up&msg=OK&ping="
+  );
+}, 20000);
