@@ -13,6 +13,9 @@ app.post("/mattermost/openticket", (req, res) => {
   hook.send();
   hook.setContent(`${req.body}`);
   hook.send();
+  res.send({
+    text: "OK"
+  })
 });
 
 app.listen(6262, () => {
